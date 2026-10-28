@@ -1,0 +1,5 @@
+# [Optimal File Merge](https://www.geeksforgeeks.org/problems/optimal-file-merge/1)
+## Medium
+Given an integer array files[], where files[i] represents the size of the i-th file, merge all the files into a single file with the minimum total computation cost.The cost of merging two files of sizes x and y is x + y. After merging, a new file of size x + y is created,&nbsp;which can be merged further with other files.Return the minimum total cost required to merge all the files.Note:&nbsp;It is guaranteed that the minimum total computation cost fits within a 32-bit signed integer.Examples:Input: files[] = [3, 2, 4]Output: 14
+Explanation: There are different ways to combine these files. Optimal method is given below:
+Input: files[] = [2, 3, 6, 5, 7, 4]Output: 68Explanation: There are different ways to combine these files. Optimal method is given below:
