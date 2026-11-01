@@ -1,0 +1,52 @@
+class Solution {
+public:
+    int largestSumCycle(vector<int>& edge) {
+        int n = edge.size();
+
+        vector<int> vis(n, 0);
+        vector<int> path(n, -1);
+
+        int ans = -1;
+
+        for (int i = 0; i < n; i++) {
+            if (vis[i] == 1) {
+                continue;
+            }
+
+            int node = i;
+            int step = 0;
+
+            while (node != -1 && vis[node] == 0) {
+                vis[node] = 1;
+                path[node] = step++;
+
+                node = edge[node];
+            }
+            if (node != -1 && path[node] != -1) {
+                int sum = 0;
+                int curr = node;
+
+                do {
+                    sum += curr;
+                    curr = edge[curr];
+                } while (curr != node);
+
+                ans = max(ans, sum);
+            }
+
+            node = i;
+
+            while (node != -1 && path[node] != -1) {
+                int next = edge[node];
+                path[node] = -1;
+                node = next;
+            }
+        }
+
+        return ans;
+    }
+};
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
